@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output, ChangeDetectorRef } from '@angular/core';
 import {Post} from "../../Post"
 import {POSTS} from "../../mock-tasks"
 import {BookServiceService} from "../../services/book-service.service"
@@ -18,14 +18,31 @@ export class ListItemsComponent implements OnInit {
   faTimes = faTimes
   faCoffee = faCoffee
   @Input() item: Post| undefined
+  @Input() flag: boolean = true
+  @Input() text: string|undefined;
+  constructor(private bookServiceService: BookServiceService, library: FaIconLibrary) { 
+    library.addIcons(faCoffee) 
 
-  constructor(private bookServiceService: BookServiceService, library: FaIconLibrary) { library.addIcons(faCoffee) }
+  }
 
   ngOnInit(): void {
     this.bookServiceService.getPosts().subscribe((posts) =>{
       this.posts = posts
       console.log("posts is:", posts)
     })
+    
+  }
+
+  toggleThis() {
+    this.flag = !this.flag
+    if(this.flag) {
+      this.text = "Collapse"
+    } else {
+      this.text = "Expand"
+    }
+    console.log(this.flag)
+    console.log(this.text)
+    return this.flag
   }
 
 }

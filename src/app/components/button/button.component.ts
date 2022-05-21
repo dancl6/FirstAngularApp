@@ -13,10 +13,11 @@ export class ButtonComponent implements OnInit {
   posts: Post[] = POSTS
   showTable : boolean = true
   // subscription: Subscription
-  @Output() btnClick = new EventEmitter()
+  @Output() clickThis = new EventEmitter()
   @Input() text: string|undefined;
   @Input() item: Post| undefined
   @Input() value: boolean|undefined
+  @Input() opened: boolean = true
   constructor(private uiService: UiService) { 
     // this.subscription = this.uiService
     // .onToggle()
@@ -27,8 +28,10 @@ export class ButtonComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  open(){
-    return true
+  onClick() {
+    this.clickThis.emit()
+    console.log("text is:", this.text)
   }
+  
 
 }
