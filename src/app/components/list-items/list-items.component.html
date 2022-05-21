@@ -1,0 +1,13 @@
+<app-button></app-button>
+<div *ngFor = "let item of posts"   >
+    <h1>{{item.title}} 
+        <fa-icon
+        [icon] = "['fas', 'coffee']"
+        >
+
+    </fa-icon>  
+
+    </h1>    
+    {{item.author}}
+
+</div>
