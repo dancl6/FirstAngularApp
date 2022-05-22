@@ -7,19 +7,23 @@ import { ListItemsComponent } from './components/list-items/list-items.component
 import { PostItemComponent } from './components/post-item/post-item.component';
 import { FontAwesomeModule, FaIconLibrary } from '@fortawesome/angular-fontawesome';
 import { ButtonComponent } from './components/button/button.component';
+import { AddPostComponent } from './components/add-post/add-post.component';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
     AppComponent,
     ListItemsComponent,
     PostItemComponent,
-    ButtonComponent
+    ButtonComponent,
+    AddPostComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule, 
     FontAwesomeModule,
-    HttpClientModule, FontAwesomeModule
+    HttpClientModule, FontAwesomeModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

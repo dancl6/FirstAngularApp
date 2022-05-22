@@ -17,4 +17,7 @@ export class BookServiceService {
   getPosts(): Observable<Post[]> {
     return this.http.get<Post[]>(this.apiUrl)
   }
+  addPost(post:Post) : Observable<Post> {
+    return this.http.post<Post>(this.apiUrl, post, httpOptions)
+  }
 }

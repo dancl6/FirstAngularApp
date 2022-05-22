@@ -5,6 +5,7 @@ import {BookServiceService} from "../../services/book-service.service"
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 import { faCoffee } from '@fortawesome/free-solid-svg-icons';
 import { FaIconLibrary } from '@fortawesome/angular-fontawesome';
+
 import { Subscription } from 'rxjs';
 @Component({
   selector: 'app-list-items',
@@ -44,5 +45,8 @@ export class ListItemsComponent implements OnInit {
     console.log(this.text)
     return this.flag
   }
-
+  addPost(post:Post) {
+    this.bookServiceService.addPost(post)
+    .subscribe((post) => (this.posts.push(post)))
+  }
 }
