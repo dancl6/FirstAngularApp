@@ -10,7 +10,5 @@ export class AppComponent {
   title = 'angular-ap';
   faTimes = faTimes
   faCoffee = faCoffee
-  open(){
-    return true
-  }
+
 }

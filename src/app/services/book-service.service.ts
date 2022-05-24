@@ -20,4 +20,8 @@ export class BookServiceService {
   addPost(post:Post) : Observable<Post> {
     return this.http.post<Post>(this.apiUrl, post, httpOptions)
   }
+  deleteTask(item: Post) : Observable<Post> {
+    const url = `${this.apiUrl}/${item.id}`
+    return this.http.delete<Post>(url)
+  }
 }

@@ -33,6 +33,13 @@ export class ListItemsComponent implements OnInit {
     })
     
   }
+  deleteTask(item: Post) {
+    this.bookServiceService
+    .deleteTask(item)
+    .subscribe(
+      () => (this.posts = this.posts.filter((p) => p.id !== item.id))
+    )
+  }
 
   toggleThis() {
     this.flag = !this.flag

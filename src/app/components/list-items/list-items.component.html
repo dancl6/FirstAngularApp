@@ -1,10 +1,10 @@
 <app-button 
 (clickThis) = "toggleThis()" [text] = text
 ></app-button>
-<div
+<!-- <div
 *ngIf = "flag" 
 >
-<div *ngFor = "let item of posts"   >
+<div *ngFor = "let item of posts" [item] = "item"  >
     <h1>{{item.title}} 
         <fa-icon
         [icon] = "['fas', 'coffee']"
@@ -16,5 +16,6 @@
     {{item.author}}
 
 </div>
-</div>
+</div> -->
+<app-post-item *ngFor = "let item of posts" [item] = "item"  (onDeleteTask)="deleteTask(item)"></app-post-item>
 <app-add-post  (onAddPost)="addPost($event)"   ></app-add-post>

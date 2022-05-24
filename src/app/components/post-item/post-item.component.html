@@ -1,5 +1,22 @@
-<app-list-items>
+<!-- <app-list-items
+*ngIf = "open()" (onDeletePost) = "deletePost(item)" 
+></app-list-items> -->
 
-</app-list-items>
+<div
+*ngIf = "flag" 
+>
+<div   >
+    <h1  
+    >{{item.title}} 
+        <fa-icon
+        [icon] = "faTimes"
+        (click) = "onDelete(item)"
+        >
 
+    </fa-icon>  
 
+    </h1>    
+    {{item.author}}
+
+</div>
+</div>
